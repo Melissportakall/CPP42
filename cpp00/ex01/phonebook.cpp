@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mportaka <mportaka@student.42.fr>          +#+  +:+       +#+        */
+/*   By: melisportakal <melisportakal@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 15:07:24 by mportaka          #+#    #+#             */
-/*   Updated: 2024/10/16 16:47:35 by mportaka         ###   ########.fr       */
+/*   Updated: 2025/01/22 19:57:31 by melisportak      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,17 @@ std::string Contact::get_Secret(void)
 std::string formatInput(const std::string& input) {
     std::string formatted = input;
 
-    // Eğer girdi 10 karakterden uzun ise, ilk 9 karakteri al ve sonuna "." ekle
+    
     if (formatted.length() > 10) {
         formatted = formatted.substr(0, 9) + ".";
     }
 
-    // Sağdaya dayalı yap
+    
     while (formatted.length() < 10) {
-        formatted = " " + formatted; // Boşluk ekleyerek sağa dayalı yap
+        formatted = " " + formatted; 
     }
 
-    return formatted; // Formatlanmış girdi döndür
+    return formatted; 
 }
 
 
@@ -122,7 +122,7 @@ void PhoneBook::SEARCH(void)
     std::cout << " ------- ------------  ----------  --------- " << std::endl;
     for(int i = 0;i < fixed;i++)
     {
-        std::cout << "-----------------------------------------" << std::endl;
+        std::cout << "---------------------------------------------" << std::endl;
         std::cout << "|         " << i << "|" << formatInput(contact[i].get_Name()) << "|" << formatInput(contact[i].get_Surname()) << "|" << formatInput(contact[i].get_Nickname()) << "|" << std::endl;
         std::cout << " ¯¯¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯ ¯¯¯¯¯¯¯¯¯¯" << std::endl;
     }
@@ -148,10 +148,10 @@ void PhoneBook::EXIT(void){
 
 std::string PhoneBook::getstring(void) {
     std::string str;
-    std::cin.clear(); // std::cin durumunu temizler
-    fflush(stdin); // Giriş akışındaki kalan karakterleri temizler
-    std::getline(std::cin, str); // std::cin'den bir satır okur ve str'ye atar
-    return str; // str'yi döndürür
+    std::cin.clear(); 
+    fflush(stdin); 
+    std::getline(std::cin, str); 
+    return str; 
 }
 
 int main()
@@ -166,6 +166,9 @@ int main()
     while(1)
     {
         std::string command = phonebook.getstring();
+        for (int i = 0; i < command.length(); i++){
+            command[i] = toupper(command[i]);
+        }
         if(command == "ADD")
         {
             phonebook.ADD();
@@ -178,6 +181,10 @@ int main()
         {
             phonebook.EXIT();
             break;
+        }
+        else
+        {
+            std::cout << "Invalid Command" << std::endl;
         }
     }
 }
