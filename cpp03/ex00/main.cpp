@@ -1,0 +1,34 @@
+
+#include "ClapTrap.hpp"
+
+int main() {
+    
+    ClapTrap robot1("Clappy");
+    ClapTrap robot2("Trappy");
+
+    std::cout << "\n--- Beginning situation ---\n";
+    robot1.attack("enemy");        
+    robot1.takeDamage(3);   
+    robot1.beRepaired(5);
+
+    std::cout << "\n--- Energy Depletion Test ---\n";
+    for (int i = 0; i < 10; ++i) {
+        robot1.attack("enemy");
+    }
+
+    std::cout << "\n--- Life Exhaustion Test ---\n";
+    robot1.takeDamage(15);
+    robot1.attack("enemy");
+    robot1.beRepaired(10);
+
+    
+    std::cout << "\n--- Copy Constructar Test ---\n";
+    ClapTrap robot3(robot1);
+
+    std::cout << "\n--- Copy Assigment Test ---\n";
+    robot2 = robot1;
+
+    return 0;
+}
+
+
