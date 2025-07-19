@@ -11,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "Functions.hpp"
-#include "A.hpp"
-#include "B.hpp"
-#include "C.hpp"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>

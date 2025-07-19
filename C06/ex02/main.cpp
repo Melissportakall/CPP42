@@ -13,8 +13,9 @@
 #include "Functions.hpp"
 #include <iostream>
 
+
 int main() {
-    srand(time(NULL));
+    
     
     std::cout << "Testing generate() and identify() functions:" << std::endl;
     std::cout << "=============================================" << std::endl;

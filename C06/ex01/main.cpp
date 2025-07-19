@@ -21,8 +21,8 @@ int main() {
     std::cout << "Original Data address: " << &data << std::endl;
     std::cout << "Original Data: id=" << data.id << ", name=" << data.name << std::endl;
 
-    uintptr_t raw = Serializer::serialize(&data);
-    std::cout << "Serialized (uintptr_t): " << raw << std::endl;
+    unsigned long raw = Serializer::serialize(&data);
+    std::cout << "Serialized (unsigned long): " << raw << std::endl;
 
     Data* ptr = Serializer::deserialize(raw);
     std::cout << "Deserialized Data address: " << ptr << std::endl;
